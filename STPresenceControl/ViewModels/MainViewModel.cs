@@ -19,5 +19,23 @@ namespace STPresenceControl.ViewModels
         }
 
         #endregion
+
+        #region Ctor
+
+        public MainViewModel()
+        {
+            LoadCommands();
+        }
+
+        #endregion
+
+        #region Commands
+
+        private void LoadCommands()
+        {
+
+        }
+
+        #endregion
     }
 }
