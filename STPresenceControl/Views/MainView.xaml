@@ -25,7 +25,7 @@
 
         <ListView x:Name="MenuListView"
                   Grid.Row="1"
-                  ItemsSource="{Binding Sections}" />
+                  ItemsSource="{Binding SectionCommands}" />
 
         <ContentControl x:Name="MainContainer"
                         Grid.Column="1"

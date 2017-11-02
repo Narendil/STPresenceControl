@@ -1,5 +1,6 @@
 ﻿using SugaarSoft.MVVM.Base;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 
 namespace STPresenceControl.ViewModels
@@ -8,14 +9,14 @@ namespace STPresenceControl.ViewModels
     {
         #region Binding
 
-        private readonly List<ICommand> _sections = new List<ICommand>(); //WON'T CHANGE DURING APP LIFETIME
-        public List<ICommand> Sections { get { return _sections; } }
+        private readonly List<ICommand> _sectionCommands = new List<ICommand>(); //WON'T CHANGE DURING APP LIFETIME
+        public List<ICommand> SectionCommands { get { return _sectionCommands; } }
 
-        private ICommand _selectedSection;
-        public ICommand SelectedSection
+        private object _currentSection;
+        public object CurrentSection
         {
-            get { return _selectedSection; }
-            set { _selectedSection = value; OnPropertyChanged(); }
+            get { return _currentSection; }
+            set { _currentSection = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -33,7 +34,8 @@ namespace STPresenceControl.ViewModels
 
         private void LoadCommands()
         {
-
+            SectionCommands.Clear();
+            //TODO - Add sections
         }
 
         #endregion
