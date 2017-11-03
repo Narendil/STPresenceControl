@@ -119,7 +119,7 @@ namespace STPresenceControl
             {
                 ContextMenuStrip = new ContextMenuStrip(),
                 Icon = Properties.Resources.AppIcon,
-                Text = String.Format("Faltan: {0}", new TimeSpan(0, Convert.ToInt32(_leftMins), 0).ToString()),
+                Text = "Esperando datos...",
                 Visible = true,
                 ContextMenu = GenerateContextMenu()
             };
@@ -185,8 +185,7 @@ namespace STPresenceControl
         private void OnConfigWindowClosing(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
-            var window = (Window)sender;
-            window.Hide();
+            ((Window)sender).Hide();
         }
 
         #endregion
