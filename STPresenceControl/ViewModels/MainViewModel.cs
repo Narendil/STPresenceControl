@@ -32,7 +32,8 @@ namespace STPresenceControl.ViewModels
         #region Commands
 
         private void LoadCommands()
-        {  
+        {
+            //TODO - Add sections
         }
 
         #endregion
