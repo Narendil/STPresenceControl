@@ -8,14 +8,14 @@ namespace STPresenceControl.ViewModels
     {
         #region Binding
 
-        private readonly List<ICommand> _sections = new List<ICommand>(); //WON'T CHANGE DURING APP LIFETIME
-        public List<ICommand> Sections { get { return _sections; } }
+        private readonly List<ICommand> _sectionCommands = new List<ICommand>(); //WON'T CHANGE DURING APP LIFETIME
+        public List<ICommand> SectionCommands { get { return _sectionCommands; } }
 
-        private ICommand _selectedSection;
-        public ICommand SelectedSection
+        private object _currentSection;
+        public object CurrentSection
         {
-            get { return _selectedSection; }
-            set { _selectedSection = value; OnPropertyChanged(); }
+            get { return _currentSection; }
+            set { _currentSection = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -32,8 +32,7 @@ namespace STPresenceControl.ViewModels
         #region Commands
 
         private void LoadCommands()
-        {
-
+        {  
         }
 
         #endregion
