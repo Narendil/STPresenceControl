@@ -33,7 +33,6 @@ namespace STPresenceControl.ViewModels
 
         private void LoadCommands()
         {
-            SectionCommands.Clear();
             //TODO - Add sections
         }
 
