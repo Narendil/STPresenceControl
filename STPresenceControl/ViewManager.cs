@@ -118,7 +118,7 @@ namespace STPresenceControl
             {
                 ContextMenuStrip = new ContextMenuStrip(),
                 Icon = Properties.Resources.AppIcon,
-                Text = String.Format("Faltan: {0}", new TimeSpan(0, Convert.ToInt32(_leftMins), 0).ToString()),
+                Text = String.Format("Esperando datos..."),
                 Visible = true,
                 ContextMenu = GenerateContextMenu()
             };
@@ -144,6 +144,12 @@ namespace STPresenceControl
             try
             {
                 PresenceControlEntries.Clear();
+                var userName = SettingsService.Instance.LoadSetting(App.CN_UserName);
+                if (string.IsNullOrEmpty(userName))
+                {
+                    _notification.Show("Datos de login no encontrados. Acceda a la sección de configuración.", "Control de presencia", Enums.NotificationTypeEnum.Info);
+                    return;
+                }
                 await _dataProvider.LoginAsync(SettingsService.Instance.LoadSetting(App.CN_UserName), SettingsService.Instance.LoadSetting(App.CN_Pwd));
                 PresenceControlEntries.AddRange(await _dataProvider.GetPrensenceControlEntriesAsync(DateTime.Today));
                 _leftMins = PresenceControlEntriesHelper.GetLeftTimeMinutes(_presenceControlEntries);
