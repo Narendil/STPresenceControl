@@ -15,11 +15,11 @@ using System.Net;
 
 namespace STPresenceControl.DataProviders
 {
-    public class InfinityZucchetti : IDataProvider
+    public class ZucchettiDataProvider : IDataProvider
     {
         private readonly Http _http;
 
-        public InfinityZucchetti()
+        public ZucchettiDataProvider()
         {
             _http = new Http();
         }

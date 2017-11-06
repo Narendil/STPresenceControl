@@ -6,7 +6,6 @@ using STPresenceControl.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Forms;
@@ -34,7 +33,7 @@ namespace STPresenceControl
         private readonly NotifyIcon _notifyIcon;
         private readonly INotfication _notification;
         private readonly Window _configurationWindow;
-        private readonly IDataProvider _dataProvider = new InfinityZucchetti();
+        private readonly IDataProvider _dataProvider = new ZucchettiDataProvider();
 
         private readonly DispatcherTimer _refreshData;
         private readonly DispatcherTimer _leftTimeTimer;
@@ -88,7 +87,7 @@ namespace STPresenceControl
 
         private void ExecuteRefresh(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            GetPrensenceControlEntries();
         }
 
         private void CheckContextMenuState()
@@ -145,7 +144,7 @@ namespace STPresenceControl
             try
             {
                 PresenceControlEntries.Clear();
-                await _dataProvider.LoginAsync(ConfigurationManager.AppSettings[App.CN_UserName], ConfigurationManager.AppSettings[App.CN_Pwd]);
+                await _dataProvider.LoginAsync(SettingsService.Instance.LoadSetting(App.CN_UserName), SettingsService.Instance.LoadSetting(App.CN_Pwd));
                 PresenceControlEntries.AddRange(await _dataProvider.GetPrensenceControlEntriesAsync(DateTime.Today));
                 _leftMins = PresenceControlEntriesHelper.GetLeftTimeMinutes(_presenceControlEntries);
                 _notification.Show("Actualizadas entradas y salidas.", "Control de presencia", Enums.NotificationTypeEnum.Info);

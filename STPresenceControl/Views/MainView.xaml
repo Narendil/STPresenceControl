@@ -18,21 +18,23 @@
             <ColumnDefinition Width="0.8*" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="HeaderGrid"
-              Grid.Column="1">
+        <!--<Grid x:Name="HeaderGrid"
+              Grid.ColumnSpan="2">
             <TextBlock Text="En construcción..." />
-        </Grid>
+        </Grid>-->
 
         <ListView x:Name="MenuListView"
                   Grid.Row="1"
-                  ItemsSource="{Binding SectionCommands}" />
+                  ItemsSource="{Binding SectionCommands}"
+                  SelectedItem="{Binding  SelectedSectionCommand}" />
 
         <ContentControl x:Name="MainContainer"
                         Grid.Column="1"
                         Grid.Row="1"
                         Content="{Binding CurrentSection, Mode=TwoWay}" />
+
         <Grid x:Name="BottomGrid"
-              Grid.Column="1"
+              Grid.ColumnSpan="2"
               Grid.Row="2" />
     </Grid>
 </UserControl>
