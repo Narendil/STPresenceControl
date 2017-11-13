@@ -14,7 +14,7 @@ using STPresenceControl.Enums;
 using System.Net;
 using STPresenceControl.Contracts;
 
-namespace STPresenceControl.DataProviders
+namespace STPresenceControl.Libs
 {
     public class ZucchettiDataProvider : IDataProvider
     {

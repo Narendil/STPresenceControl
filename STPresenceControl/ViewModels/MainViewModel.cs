@@ -1,7 +1,6 @@
 ﻿using SugaarSoft.MVVM.Base;
 using System.Collections.Generic;
 using System.Windows.Input;
-using System;
 
 namespace STPresenceControl.ViewModels
 {
@@ -55,9 +54,9 @@ namespace STPresenceControl.ViewModels
             value.Execute(null);
         }
 
-        private void LoadSection<T>() where T : new()
+        private void LoadSection<T>()
         {
-            CurrentSection = new T();
+            CurrentSection = App.IoC.Resolve<T>();
         }
 
         #endregion

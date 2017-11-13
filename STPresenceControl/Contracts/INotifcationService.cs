@@ -2,7 +2,7 @@
 
 namespace STPresenceControl.Contracts
 {
-    public interface INotifcationService
+    public interface INotificationService
     {
         void Show(string message);
         void Show(string message, string title);

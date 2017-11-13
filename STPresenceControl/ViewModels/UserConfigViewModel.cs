@@ -8,10 +8,17 @@ namespace STPresenceControl.ViewModels
 {
     public class UserConfigViewModel : NotificationObject, IPasswordHandler
     {
+        #region Services
+
+        private ISettingsService _settingsService;
+
+        #endregion
+
         #region Ctor
 
-        public UserConfigViewModel()
+        public UserConfigViewModel(ISettingsService settingsService)
         {
+            _settingsService = settingsService;
             LoadCommands();
             LoadDefaultValues();
         }
@@ -61,16 +68,10 @@ namespace STPresenceControl.ViewModels
             SaveCommand.Execute(null);
         }
 
-        private void LoadDefaultValues()
+        private async void LoadDefaultValues()
         {
-            _userName = SettingsService.Instance.LoadSetting(App.CN_UserName);
-            _pwd = SettingsService.Instance.LoadSetting(App.CN_Pwd);
-        }
-
-        private bool HasChanged()
-        {
-            return (UserName != SettingsService.Instance.LoadSetting(App.CN_UserName)
-                        || Pwd != SettingsService.Instance.LoadSetting(App.CN_Pwd));
+            _userName = await _settingsService.GetSettingAsync<string>(App.CN_UserName);
+            _pwd = await _settingsService.GetSettingAsync<string>(App.CN_Pwd);
         }
 
         #endregion

@@ -3,16 +3,16 @@ using STPresenceControl.Enums;
 using System;
 using System.Windows.Forms;
 
-namespace STPresenceControl.Notification
+namespace STPresenceControl.Libs
 {
-    public class BallonTipNotificationService : INotifcationService
+    public class BallonTipNotificationService : INotificationService
     {
         public readonly NotifyIcon NotifyIcon;
         public BallonTipNotificationService(NotifyIcon notifyIcon)
         {
             NotifyIcon = notifyIcon;
         }
-
+        
         public void Show(string message)
         {
             Show(message, null);
