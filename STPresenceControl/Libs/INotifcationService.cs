@@ -2,7 +2,7 @@
 
 namespace STPresenceControl.Notification
 {
-    public interface INotfication
+    public interface INotifcationService
     {
         void Show(string message);
         void Show(string message, string title);

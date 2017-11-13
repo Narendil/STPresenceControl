@@ -8,7 +8,7 @@ using STPresenceControl.Enums;
 
 namespace STPresenceControl.Notification
 {
-    public class NotifyIconBallonTip : INotfication 
+    public class NotifyIconBallonTip : INotifcationService 
     {
         public readonly NotifyIcon NotifyIcon;
         public NotifyIconBallonTip(NotifyIcon notifyIcon)

@@ -31,7 +31,7 @@ namespace STPresenceControl
 
         private double _leftMins;
         private readonly NotifyIcon _notifyIcon;
-        private readonly INotfication _notification;
+        private readonly INotifcationService _notification;
         private readonly Window _configurationWindow;
         private readonly IDataProvider _dataProvider = new ZucchettiDataProvider();
 

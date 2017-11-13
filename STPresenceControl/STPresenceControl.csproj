@@ -106,9 +106,9 @@
     <Compile Include="Enums\PresenceControlEntryTypeEnum.cs" />
     <Compile Include="Extensions\HttpExtensions.cs" />
     <Compile Include="Models\PresenceControlEntry.cs" />
-    <Compile Include="Notification\INotfication.cs" />
+    <Compile Include="Libs\INotifcationService.cs" />
     <Compile Include="Enums\NotificationTypeEnum.cs" />
-    <Compile Include="Notification\NotifyIconBallonTip.cs" />
+    <Compile Include="Libs\NotifyIconBallonTip.cs" />
     <Compile Include="ViewManager.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\UserConfigViewModel.cs" />
