@@ -12,6 +12,7 @@ using System.Globalization;
 using Newtonsoft.Json.Linq;
 using STPresenceControl.Enums;
 using System.Net;
+using STPresenceControl.Contracts;
 
 namespace STPresenceControl.DataProviders
 {

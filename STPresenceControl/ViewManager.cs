@@ -1,4 +1,5 @@
 ﻿using STPresenceControl.Common;
+using STPresenceControl.Contracts;
 using STPresenceControl.DataProviders;
 using STPresenceControl.Models;
 using STPresenceControl.Notification;
@@ -123,7 +124,7 @@ namespace STPresenceControl
                 ContextMenu = GenerateContextMenu()
             };
             CheckContextMenuState();
-            _notification = new NotifyIconBallonTip(_notifyIcon);
+            _notification = new BallonTipNotificationService(_notifyIcon);
             _notification.Show("Iniciando...", "Control de presencia", Enums.NotificationTypeEnum.Info);
             _refreshData = new DispatcherTimer(new TimeSpan(0, 30, 0), DispatcherPriority.Normal, (sender, e) => GetPrensenceControlEntries(), Dispatcher.CurrentDispatcher);
             _leftTimeTimer = new DispatcherTimer(new TimeSpan(0, 1, 0), DispatcherPriority.Normal, (sender, e) =>

@@ -1,6 +1,6 @@
 ﻿using STPresenceControl.Enums;
 
-namespace STPresenceControl.Notification
+namespace STPresenceControl.Contracts
 {
     public interface INotifcationService
     {

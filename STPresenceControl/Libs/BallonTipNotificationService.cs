@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using STPresenceControl.Contracts;
 using STPresenceControl.Enums;
+using System;
+using System.Windows.Forms;
 
 namespace STPresenceControl.Notification
 {
-    public class NotifyIconBallonTip : INotifcationService 
+    public class BallonTipNotificationService : INotifcationService
     {
         public readonly NotifyIcon NotifyIcon;
-        public NotifyIconBallonTip(NotifyIcon notifyIcon)
+        public BallonTipNotificationService(NotifyIcon notifyIcon)
         {
             NotifyIcon = notifyIcon;
         }

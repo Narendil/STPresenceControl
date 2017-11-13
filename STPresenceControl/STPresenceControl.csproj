@@ -101,14 +101,14 @@
     <Compile Include="Common\RegistryServiceHelper.cs" />
     <Compile Include="Common\SettingsService.cs" />
     <Compile Include="Contracts\IPasswordHandler.cs" />
-    <Compile Include="DataProviders\IDataProvider.cs" />
+    <Compile Include="Contracts\IDataProvider.cs" />
     <Compile Include="DataProviders\InfinityZucchetti.cs" />
     <Compile Include="Enums\PresenceControlEntryTypeEnum.cs" />
     <Compile Include="Extensions\HttpExtensions.cs" />
     <Compile Include="Models\PresenceControlEntry.cs" />
-    <Compile Include="Libs\INotifcationService.cs" />
+    <Compile Include="Contracts\INotifcationService.cs" />
     <Compile Include="Enums\NotificationTypeEnum.cs" />
-    <Compile Include="Libs\NotifyIconBallonTip.cs" />
+    <Compile Include="Libs\BallonTipNotificationService.cs" />
     <Compile Include="ViewManager.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\UserConfigViewModel.cs" />
