@@ -1,10 +1,35 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:vm="clr-namespace:STPresenceControl.ViewModels"
-                    xmlns:v="clr-namespace:STPresenceControl.Views">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <DataTemplate DataType="{x:Type vm:MainViewModel}">
-        <v:MainView />
-    </DataTemplate>
+    <SolidColorBrush x:Key="FontTitleColor">Black</SolidColorBrush>
+    <SolidColorBrush x:Key="DefaultFontColor">Black</SolidColorBrush>
+
+    <Style TargetType="ListViewItem">
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+    </Style>
+
+    <Style x:Key="BaseTextblockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Margin"
+                Value="10" />
+        <Setter Property="Foreground"
+                Value="{StaticResource DefaultFontColor}" />
+
+    </Style>
+
+    <Style x:Key="HeaderTextblockStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource BaseTextblockStyle}">
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="Foreground"
+                Value="{StaticResource FontTitleColor}" />
+
+    </Style>
 
 </ResourceDictionary>

@@ -1,8 +1,8 @@
 ﻿using STPresenceControl.Enums;
 
-namespace STPresenceControl.Notification
+namespace STPresenceControl.Contracts
 {
-    public interface INotfication
+    public interface INotificationService
     {
         void Show(string message);
         void Show(string message, string title);
