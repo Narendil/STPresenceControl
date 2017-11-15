@@ -92,7 +92,7 @@ namespace STPresenceControl
 
         #region Ctor
 
-        public ViewManager(IDataProvider dataProvider, INotificationService notificationService)
+        public ViewManager(IDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
             _configurationWindow = GenerateConfigurationWindow();

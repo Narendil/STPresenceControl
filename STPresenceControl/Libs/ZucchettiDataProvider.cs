@@ -1,18 +1,18 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
+using STPresenceControl.Common;
+using STPresenceControl.Contracts;
+using STPresenceControl.Enums;
+using STPresenceControl.Models;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using STPresenceControl.Models;
-using STPresenceControl.Common;
-using HtmlAgilityPack;
 using System.Web;
-using System.Net.Http;
-using System.Globalization;
-using Newtonsoft.Json.Linq;
-using STPresenceControl.Enums;
-using System.Net;
-using STPresenceControl.Contracts;
 
 namespace STPresenceControl.Libs
 {
