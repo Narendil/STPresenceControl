@@ -1,7 +1,10 @@
 ﻿using STPresenceControl.Common;
 using STPresenceControl.Contracts;
 using SugaarSoft.MVVM.Base;
+using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace STPresenceControl.ViewModels
@@ -54,8 +57,11 @@ namespace STPresenceControl.ViewModels
 
         private void ExecuteSaveCommand(object obj)
         {
-            SettingsService.Instance.SaveSetting("UserName", UserName);
-            SettingsService.Instance.SaveSetting("Pwd", Pwd);
+            Task.Run(() =>
+            {
+                _settingsService.SetSettingsAsync("UserName", UserName);
+                _settingsService.SetSettingsAsync("Pwd", Pwd);
+            });
         }
 
         #endregion
@@ -70,8 +76,15 @@ namespace STPresenceControl.ViewModels
 
         private async void LoadDefaultValues()
         {
-            _userName = await _settingsService.GetSettingAsync<string>(App.CN_UserName);
-            _pwd = await _settingsService.GetSettingAsync<string>(App.CN_Pwd);
+            try
+            {
+                _userName = await _settingsService.GetSettingAsync<string>(App.CN_UserName);
+                _pwd = await _settingsService.GetSettingAsync<string>(App.CN_Pwd);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Ha sucedido un error en la carga de la configuración: " + e.Message);
+            }
         }
 
         #endregion

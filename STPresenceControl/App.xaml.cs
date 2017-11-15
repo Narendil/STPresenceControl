@@ -43,7 +43,7 @@ namespace STPresenceControl
 
         private void RegisterServices()
         {
-            IoC.RegisterType<ISerializationService, XamlSerializationService>();
+            IoC.RegisterType<ISerializationService, JsonSerializationService>();
             IoC.RegisterType<IDataProvider, ZucchettiDataProvider>();
             IoC.RegisterType<ISettingsService, UserSettingsService>();
         }

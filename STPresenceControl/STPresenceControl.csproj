@@ -99,7 +99,6 @@
     <Compile Include="Common\Icons.cs" />
     <Compile Include="Common\PresenceControlEntriesHelper.cs" />
     <Compile Include="Common\RegistryServiceHelper.cs" />
-    <Compile Include="Common\SettingsService.cs" />
     <Compile Include="Contracts\IPasswordHandler.cs" />
     <Compile Include="Contracts\IDataProvider.cs" />
     <Compile Include="Contracts\ISerializationService.cs" />
@@ -108,7 +107,7 @@
     <Compile Include="Enums\PresenceControlEntryTypeEnum.cs" />
     <Compile Include="Extensions\HttpExtensions.cs" />
     <Compile Include="Libs\UserSettingsService.cs" />
-    <Compile Include="Libs\XamlSerializationService.cs" />
+    <Compile Include="Libs\JsonSerializationService.cs" />
     <Compile Include="Models\PresenceControlEntry.cs" />
     <Compile Include="Contracts\INotifcationService.cs" />
     <Compile Include="Enums\NotificationTypeEnum.cs" />

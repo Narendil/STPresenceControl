@@ -28,10 +28,11 @@ namespace STPresenceControl
         #region Fields
         private readonly IDataProvider _dataProvider;
         private readonly INotificationService _notificationService;
+        private readonly ISettingsService _settingsService;
 
         private double _leftMins;
         private readonly NotifyIcon _notifyIcon;
-        private readonly Window _configurationWindow;        
+        private readonly Window _configurationWindow;
         private readonly DispatcherTimer _refreshData;
         private readonly DispatcherTimer _leftTimeTimer;
 
@@ -92,8 +93,9 @@ namespace STPresenceControl
 
         #region Ctor
 
-        public ViewManager(IDataProvider dataProvider)
+        public ViewManager(IDataProvider dataProvider, ISettingsService settingsService)
         {
+            _settingsService = settingsService;
             _dataProvider = dataProvider;
             _configurationWindow = GenerateConfigurationWindow();
             _notifyIcon = new NotifyIcon(new Container())
@@ -129,13 +131,14 @@ namespace STPresenceControl
             try
             {
                 PresenceControlEntries.Clear();
-                var userName = SettingsService.Instance.LoadSetting(App.CN_UserName);
+                var userName = await _settingsService.GetSettingAsync<string>(App.CN_UserName);
                 if (string.IsNullOrEmpty(userName))
                 {
                     _notificationService.Show("Datos de login no encontrados. Acceda a la sección de configuración.", "Control de presencia", Enums.NotificationTypeEnum.Info);
                     return;
                 }
-                await _dataProvider.LoginAsync(SettingsService.Instance.LoadSetting(App.CN_UserName), SettingsService.Instance.LoadSetting(App.CN_Pwd));
+                var pwd = await _settingsService.GetSettingAsync<string>(App.CN_Pwd);
+                await _dataProvider.LoginAsync(userName, pwd);
                 PresenceControlEntries.AddRange(await _dataProvider.GetPrensenceControlEntriesAsync(DateTime.Today));
                 _leftMins = PresenceControlEntriesHelper.GetLeftTimeMinutes(_presenceControlEntries);
                 _notificationService.Show("Actualizadas entradas y salidas.", "Control de presencia", Enums.NotificationTypeEnum.Info);
