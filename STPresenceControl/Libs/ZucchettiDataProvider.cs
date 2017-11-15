@@ -1,25 +1,26 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
+using STPresenceControl.Common;
+using STPresenceControl.Contracts;
+using STPresenceControl.Enums;
+using STPresenceControl.Models;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using STPresenceControl.Models;
-using STPresenceControl.Common;
-using HtmlAgilityPack;
 using System.Web;
-using System.Net.Http;
-using System.Globalization;
-using Newtonsoft.Json.Linq;
-using STPresenceControl.Enums;
-using System.Net;
 
-namespace STPresenceControl.DataProviders
+namespace STPresenceControl.Libs
 {
-    public class InfinityZucchetti : IDataProvider
+    public class ZucchettiDataProvider : IDataProvider
     {
         private readonly Http _http;
 
-        public InfinityZucchetti()
+        public ZucchettiDataProvider()
         {
             _http = new Http();
         }
